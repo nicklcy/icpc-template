@@ -1,0 +1,16 @@
+filetype plugin indent on
+syntax on
+set softtabstop=4 shiftwidth=4 smarttab expandtab
+set mouse=a backspace=2
+set number relativenumber ruler
+set listchars=trail:$ list
+
+let mapleader = " "
+inoremap jk <esc>
+inoremap bbb {<enter>}<esc>O
+
+nmap <Leader>go :call GoSh()<CR>
+func GoSh()
+    exec "w"
+    exec "! ./go.sh a"
+endfunc
