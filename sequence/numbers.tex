@@ -1,0 +1,102 @@
+\subsubsection{伯努利数}
+\noindent 伯努利数满足
+\begin{equation*}
+    B_0 = 1, \sum_{j=0}^m \binom{m+1}{j} B_j = 0 ~ (m > 0).
+\end{equation*}
+\noindent 等式两边同时加上 $B_{m+1}$，并设 $n = m - 1$，得
+\begin{equation*}
+\sum_{i=0}^n \binom{n}{i} = [n = 1] + B_n
+\end{equation*}
+\noindent 设 $\hat{B}(x) = \sum_{i=0}^\infty B_i \cdot \frac{x^i}{i!}$，则
+\begin{equation*}
+\hat{B}(x) e^x = x + \hat{B}(x) \Rightarrow \hat{B}(x) = \frac{x}{e^x - 1} \\
+\end{equation*}
+\begin{equation*}
+\begin{aligned}
+& 0^k + 1^k + \ldots + n^k \\
+=& ~ k! [x^k] \frac{e^{(n+1)x}-1}{x} \cdot \hat{B}(x) \\
+=& ~ k! \sum_{i=0}^k \frac{B_i}{i!} \cdot \frac{(n+1)^{k-i+1}}{(k-i+1)!} \\
+=& ~ \frac{1}{k+1} \sum_{i=0}^k \binom{k+1}{i} B_i \cdot (n+1)^{k-i+1}
+\end{aligned}
+\end{equation*}
+
+\subsubsection{第一类斯特林数}
+\noindent 记 $S_1(n, k)$ 为将 $n$ 个不同元素分为 $k$ 个环排列的方案数. 由组合意义得，
+$$
+S_1(n, k) = S_1(n - 1, k - 1) + (n - 1) S_1(n - 1, k)
+$$
+$$
+x^{\overline{n}} = \sum_{i=0}^n S_1(n, i) x^i
+$$
+$$
+x^{\underline{n}} = \sum_{i=0}^n (-1)^{n-i} S_1(n, i) x^i
+$$
+$$
+\sum_{i=0}^n S_1(n, i) x^i = \prod_{i=0}^{n-1} (x+i)
+$$
+
+\noindent 注意最后等式的右半部分，可以使用递增 + 点值平移 $O(n \log n)$ 求出第
+$n$ 行斯特林数.
+
+\subsubsection{第二类斯特林数}
+\noindent 记 $S_2(n, k)$ 为将 $n$ 个不同元素分至 $k$ 个相同的盒子（每个盒子至
+少一个元素）的方案数. 由组合意义得，
+$$
+S_2(n, k) = S_2(n - 1, k - 1) + k S_2(n - 1, k)
+$$
+$$
+x^n = \sum_{i=0}^n S_2(n, i) x^{\underline{i}}
+$$
+$$
+S_2(n, k) = \sum_{i=0}^k (-1)^{k-i} \binom{k}{i} i^n
+$$
+$$
+\frac{S_2(n, k)}{k!} = \sum_{i=0}^k \frac{i^n}{i!} \cdot \frac{(-1)^{k-i}}
+{(k-i)!}
+$$
+\noindent 是一个卷积的形式，可以 FFT 求出某一行第二类斯特林数.
+
+\subsubsection{斯特林反演}
+\begin{equation*}
+    \begin{aligned}
+        x^n &= \sum_{i=0}^n S_2(n, i) x^{\underline{i}} \\
+        &= \sum_{i=0}^n S_2(n, i) \sum_{j=0}^i (-1)^{i-j} S_1(i, j) x^j \\
+        &= \sum_{i=0}^n x^i \sum_{j=i}^n (-1)^{j-i} S_2(n, j) S_1(j, i)
+    \end{aligned}
+\end{equation*}
+\noindent 设
+\begin{equation*}
+    g_n = \sum_{i=0}^n S_2(n, i) f_i,
+\end{equation*}
+\noindent 则
+\begin{equation*}
+    f_n = \sum_{i=0}^n (-1)^{n-i} S_1(n, i) g_i.
+\end{equation*}
+
+\subsubsection{Burnside 引理}
+设置换群为 $G$，染色集合为 $X$.
+
+若染色 $x \in X$ 在置换 $f$ 的作用下得到染色 $y \in X$，则称 $x, y$ 等价.
+由置换群的定义，我们可以得到等价类，使得等价类内任意两个染色等价.
+
+设 $X^g (g \in G)$ 表示在置换 $g$ 下的不动点，即
+$$
+X^g = \{x \mid x \in X, gx = x\}.
+$$
+则等价类个数
+$$
+|X / G| = \frac{1}{|G|} \sum_{g \in G} |X^g|.
+$$
+
+例 LOJ 6538 烷基计数，对于一棵有根树，每个节点至多三个儿子，且这些儿子排列同
+构. 求有多少个 $n$ 个节点的等价类.
+
+考虑其生成函数 $f(x)$.
+根节点有 $3$ 个儿子（儿子可以为空，因为循环同构，我们不需讨论 $0, 1, 2$ 个儿子
+的情况），排列的置换群有 $6$ 种，其中 $(1,2,3)$ 染色方案数为 $f(x)^3$，
+$(1,3,2),(2,1,3),(3,2,1)$ 染色方案为 $f(x^2)f(x)$，$(2,3,1),(3,1,2)$ 染色方案
+为 $f(x^3)$. 所以
+$$
+f(x) = x \times \frac{f(x)^3+3f(x^2)f(x)+2f(x^3)}{6}+1.
+$$
+牛顿迭代.

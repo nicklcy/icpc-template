@@ -1,0 +1,21 @@
+\subsubsection{扩展欧拉定理}
+\begin{equation*}
+    a^b \equiv \begin{cases} a^{b \bmod \varphi(m)} & (\gcd(a, m) = 1) \\ a^b & (\gcd(a, m) \ne 1, b < \varphi(m)) \\ a^{(b \bmod \varphi(m)) + \varphi(m)} & (\gcd(a, m) \ne 1, b \ge \varphi(m)) \end{cases} \pmod m
+\end{equation*}
+
+\subsubsection{卢卡斯定理}
+\noindent $\forall$ 质数 $p, n, m \in \mathbb{N}^{+}$,
+\begin{equation*}
+    \binom{n}{m} \equiv \binom{\lfloor n/p \rfloor}{\lfloor m/p \rfloor}
+    \binom{n \bmod p}{m \bmod p} \pmod p
+\end{equation*}
+
+\subsubsection{威尔逊定理}
+\noindent 对于质数 $p$，有 $(p-1)! \equiv -1 \pmod p$（证明 $2, 3, \ldots, p -
+2$ 可以逆元两两配对）
+\noindent 高斯的扩展：
+\begin{equation*}
+    \prod_{1 \le k \le m, \gcd(k, m) = 1} k \equiv \begin{cases} -1, &
+    \text{if } m = 4, p^\alpha, 2p^\alpha, \\ 1, & \text{otherwise}. \end{cases}
+    \pmod m
+\end{equation*}
