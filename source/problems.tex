@@ -1,0 +1,20 @@
+\subsection{编译指令}
+\begin{enumerate}
+    \item -O2 -g -std=c++11
+    \item -Wall -Wextra -Wconversion
+    \item -fsantitze=(address/undefined)：检查有符号整数溢出（无符号整数溢出
+        不算 ub）、数组越界
+\end{enumerate}
+\subsection{问题汇总}
+\begin{enumerate}
+  \item 数组或者变量类型开错，例如将 double 开成 int，或忘开 long long；
+  \item 函数忘记返回返回值；
+  \item 初始化数组没有初始化完全；
+  \item 对空间限制判断不足导致 MLE；
+  \item 多测清空，清空所有全局变量、数组（不是只有数组）；
+  \item $n, m$，$i, j$ 打错、打反；
+  \item 边界 $\pm 1$ 的情况；
+  \item 访问负下标，$+n$ 是否足够；
+  \item 输入量达到 $5 \times 10^6$ 可以考虑快读，并采用缓冲区；
+  \item PE 显示成了 WA，或其他错误。
+\end{enumerate}

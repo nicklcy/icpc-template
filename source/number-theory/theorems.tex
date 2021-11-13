@@ -19,3 +19,16 @@
     \text{if } m = 4, p^\alpha, 2p^\alpha, \\ 1, & \text{otherwise}. \end{cases}
     \pmod m
 \end{equation*}
+
+\subsubsection{莫比乌斯函数}
+	$$\mu(n) = \begin{cases}
+		1 & \text{若}n=1\\
+		(-1)^k & \text{若}n\text{无平方数因子，且}n = p_1p_2\dots p_k\\
+		0 & \text{若}n\text{有大于}1\text{的平方数因数}
+	\end{cases}$$
+	$$\sum_{d|n}{\mu(d)} = \begin{cases}
+		1 & \text{若}n=1\\
+		0 & \text{其他情况}
+	\end{cases}$$
+	$$g(n) = \sum_{d|n}{f(d)} \Leftrightarrow f(n) = \sum_{d|n}{\mu(d)g(\frac{n}{d})}$$
+	$$g(x) = \sum_{n=1}^{[x]}f(\frac{x}{n}) \Leftrightarrow f(x) = \sum_{n=1}^{[x]}{\mu(n)g(\frac{x}{n})}$$

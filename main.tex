@@ -4,12 +4,13 @@
 \usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
 \usepackage{fancyhdr}
 \usepackage[cache=false]{minted}
-%\usemintedstyle{bw}
+\usemintedstyle{bw}
 \usepackage[colorlinks]{hyperref}
 \setlength{\headheight}{15pt}
 \usepackage{geometry}
 \usepackage{amsmath,amssymb,bm}
 \usepackage{pdfpages}
+\usepackage{ulem}
 
 % 定义页边距
 \geometry{a4paper,left=1cm,right=1cm,top=2cm,bottom=2cm}
@@ -17,13 +18,29 @@
 % 定义页眉页脚
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[C]{Algorithm Library by nickluo}
+\fancyhead[C]{Algorithm Library, yet to be explored, lcy}
 \lfoot{}
 \cfoot{\thepage}
 \rfoot{}
 
-\author{nickluo}
-\title{Algorithm Library\footnote{The template of these templates is based on the \href{https://github.com/palayutm/ply-template}{ply-template} by \href{https://github.com/palayutm}{palayutm}}}
+\author{
+Shanghai Jiao Tong University\\
+\vspace{0cm}\\
+\Large{\textit{未至之境}}\\
+\Large{\textit{Yet to be Explored}}\\
+\vspace{0cm}\\
+Chengyuan Luo}
+\title{Algorithm Library}
+\date{November, 2021\\
+\small{\vspace{0.4cm}The template of these templates is based on \href{https://github.com/palayutm/ply-template}{palayutm/ply-template}\\
+Some of the codes are taken from:\\
+\href{https://github.com/FTRobbin/Dreadnought-Standard-Code-Library}
+{FTRobbin/Dreadnought-Standard-Code-Library},\\
+\href{https://github.com/laonahongchen/ICPC-code-template-Quasar-}
+{laonahongchen/ICPC-code-template-Quasar-},\\
+\href{https://github.com/laonahongchen/ICPC-code-template-Blazar}
+{laonahongchen/ICPC-code-template-Blazar}.
+}}
 
 \begin{document}
 
@@ -31,141 +48,180 @@
 
 \maketitle % 封面
 % \newpage % 换页
+\begingroup
+\hypersetup{linkcolor=black}
 \tableofcontents % 目录
+\endgroup
 
-\section{vimrc}
-\inputminted[breaklines]{vim}{vimrc/vimrc}
+\section{Vim 配置}
+\subsection{vimrc}
+\inputminted[breaklines]{vim}{source/vimrc/vimrc}
+\subsection{VS Code}
+\inputminted[breaklines]{json}{source/vimrc/vscode.json}
 
 \section{Z}
-\inputminted[breaklines]{c++}{Z/z.cpp} % 插入代码文件
+\inputminted[breaklines]{c++}{source/Z/Z.cpp} % 插入代码文件
 
 \section{随机数生成器}
-\inputminted[breaklines]{c++}{random/rand_gen.cpp}
+\inputminted[breaklines,breakanywhere]{c++}{source/random/rand-gen.cpp}
 
 \section{数列与计数}
 \subsection{多项式板子}
-\inputminted[breaklines]{c++}{sequence/polynomial.cpp}
+\inputminted[breaklines]{c++}{source/sequence/polynomial.cpp}
 \subsection{牛顿迭代}
-\input{sequence/newton.tex}
+\input{source/sequence/newton.tex}
 \subsection{MTT}
-\inputminted[breaklines]{c++}{sequence/mtt.cpp}
+\inputminted[breaklines]{c++}{source/sequence/mtt.cpp}
 \subsection{FWT}
-\inputminted[breaklines]{c++}{sequence/fwt.cpp}
+\inputminted[breaklines]{c++}{source/sequence/fwt.cpp}
 \subsection{BM}
-\inputminted[breaklines]{c++}{sequence/bm.cpp}
+\inputminted[breaklines]{c++}{source/sequence/bm.cpp}
 \subsection{numbers}
-\input{sequence/numbers.tex}
+\input{source/sequence/numbers.tex}
 \subsection{树的计数}
-\input{sequence/tree-count.tex}
+\input{source/sequence/tree-count.tex}
 
 \section{数论}
 \subsection{判素数（miller-rabin）}
-\inputminted[breaklines]{c++}{number_theory/miller_rabin.cpp}
+\inputminted[breaklines]{c++}{source/number-theory/miller_rabin.cpp}
 \subsection{二次剩余（Cipolla）}
-\input{number_theory/cipolla.tex}
-\inputminted[breaklines]{c++}{number_theory/cipolla.cpp}
+\input{source/number-theory/cipolla.tex}
+\inputminted[breaklines]{c++}{source/number-theory/cipolla.cpp}
 \subsection{杜教筛}
-\inputminted[breaklines]{c++}{number_theory/dujiaoshai.cpp}
+\inputminted[breaklines]{c++}{source/number-theory/dujiaoshai.cpp}
 \subsection{min\_25}
-\inputminted[breaklines]{c++}{number_theory/min25.cpp}
+\inputminted[breaklines]{c++}{source/number-theory/min25.cpp}
+\subsection{佩尔方程}
+\inputminted[breaklines]{c++}{source/number-theory/pell.cpp}
 \subsection{直线下整点个数}
-\inputminted[breaklines]{c++}{number_theory/lattice_count.cpp}
+\inputminted[breaklines]{c++}{source/number-theory/lattice_count.cpp}
 \subsection{定理}
-\input{number_theory/theorems.tex}
+\input{source/number-theory/theorems.tex}
 
 \section{线性代数}
 \subsection{线性基}
-\inputminted[breaklines]{c++}{linear_algebra/lb.cpp}
+\inputminted[breaklines]{c++}{source/linear-algebra/lb.cpp}
 \subsection{矩阵求逆}
-\inputminted[breaklines]{c++}{linear_algebra/matrix_inversion.cpp}
+\inputminted[breaklines]{c++}{source/linear-algebra/matrix_inversion.cpp}
 \subsection{矩阵特征多项式}
-\inputminted[breaklines]{c++}{linear_algebra/charac-poly.cpp}
+\inputminted[breaklines]{c++}{source/linear-algebra/charac-poly.cpp}
 
 \section{数据结构}
 \subsection{左偏树}
-\inputminted[breaklines]{c++}{data_structure/leftist_tree.cpp}
+\inputminted[breaklines]{c++}{source/data-structure/leftist-tree.cpp}
 \subsection{LCT}
-\inputminted[breaklines]{c++}{data_structure/lct.cpp}
+\inputminted[breaklines]{c++}{source/data-structure/lct.cpp}
 \subsection{KD-Tree}
-\inputminted[breaklines]{c++}{data_structure/kd_tree.cpp}
+\inputminted[breaklines]{c++}{source/data-structure/kd-tree.cpp}
 
 \section{图论}
 \subsection{点双}
-\inputminted[breaklines]{c++}{graph/bcc.cpp}
+\inputminted[breaklines]{c++}{source/graph/bcc.cpp}
 \subsection{全局平衡二叉树}
-\inputminted[breaklines]{c++}{graph/全局平衡二叉树.cpp}
+\inputminted[breaklines]{c++}{source/graph/全局平衡二叉树.cpp}
 \subsection{求欧拉回路}
-\inputminted[breaklines]{c++}{graph/euler_tour.cpp}
+\inputminted[breaklines]{c++}{source/graph/euler-tour.cpp}
 \subsection{SPFA}
-\inputminted[breaklines]{c++}{graph/spfa.cpp}
+\inputminted[breaklines]{c++}{source/graph/spfa.cpp}
 \subsection{虚树}
-\inputminted[breaklines]{c++}{graph/xushu.cpp}
+\inputminted[breaklines]{c++}{source/graph/xushu.cpp}
 \subsection{2-SAT}
-\inputminted[breaklines]{c++}{graph/2_sat.cpp}
+\inputminted[breaklines]{c++}{source/graph/2-sat.cpp}
 \subsection{有根树同构}
-\inputminted[breaklines]{c++}{graph/rooted_tree_isom.cpp}
+\inputminted[breaklines]{c++}{source/graph/rooted-tree-isom.cpp}
 \subsection{支配树}
-\inputminted[breaklines,breakanywhere]{c++}{graph/dominator.cpp}
+\inputminted[breaklines,breakanywhere]{c++}{source/graph/dominator.cpp}
 \subsection{MCS 求 PEO}
-\inputminted[breaklines]{c++}{graph/MCS.cpp}
+\inputminted[breaklines]{c++}{source/graph/MCS.cpp}
 \subsection{最大团}
-\inputminted[breaklines]{c++}{graph/maximum-clique.cpp}
+\inputminted[breaklines]{c++}{source/graph/maximum-clique.cpp}
 \subsection{最小树形图}
-\inputminted[breaklines]{c++}{graph/dmst.cpp}
+\inputminted[breaklines]{c++}{source/graph/dmst.cpp}
 \subsection{二分图最大权匹配（KM）}
-\inputminted[breaklines]{c++}{graph/KM.cpp}
+\inputminted[breaklines]{c++}{source/graph/KM.cpp}
+\subsection{一般图最大匹配（随机，非完全正确）}
+\inputminted[breaklines]{c++}{source/graph/random-match.cpp}
 \subsection{一般图最大权匹配}
-\inputminted[breaklines,breakanywhere]{c++}{graph/blossom.cpp}
+\inputminted[breaklines,breakanywhere]{c++}{source/graph/blossom.cpp}
 \subsection{无向图最小割}
-\inputminted[breaklines,breakanywhere]{c++}{graph/mincut.cpp}
+\inputminted[breaklines,breakanywhere]{c++}{source/graph/mincut.cpp}
+\subsection{网络流（ISAP）}
+\inputminted[breaklines]{c++}{source/graph/isap.cpp}
+\subsection{网络流（HLPP）}
+\inputminted[breaklines]{c++}{source/graph/hlpp.cpp}
+\subsection{网络流（dengyaotriangle）}
+\inputminted[breaklines]{c++}{source/graph/dengyaotriangle.cpp}
+\subsection{最小费用流}
+\inputminted[breaklines,breakanywhere]{c++}{source/graph/mincost.cpp}
 
 \section{字符串}
 \subsection{后缀树组}
-\inputminted[breaklines]{c++}{string/sa.cpp}
+\inputminted[breaklines]{c++}{source/string/sa.cpp}
 \subsection{后缀自动机}
-\inputminted[breaklines]{c++}{string/sam.cpp}
+\inputminted[breaklines]{c++}{source/string/sam.cpp}
 \subsection{Manacher}
-\inputminted[breaklines]{c++}{string/manacher.cpp}
+\inputminted[breaklines]{c++}{source/string/manacher.cpp}
 \subsection{回文自动机}
-\inputminted[breaklines]{c++}{string/pam.cpp}
+\inputminted[breaklines]{c++}{source/string/pam.cpp}
 \subsection{Lyndon 分解}
-\inputminted[breaklines]{c++}{string/lyndon.cpp}
+\inputminted[breaklines]{c++}{source/string/lyndon.cpp}
 \subsection{Z Function}
-\inputminted[breaklines]{c++}{string/z_func.cpp}
+\inputminted[breaklines]{c++}{source/string/z-func.cpp}
 
 \section{计算几何}
 \subsection{基本操作}
-\inputminted[breaklines]{c++}{geometry/basic.cpp}
+\inputminted[breaklines]{c++}{source/geometry/basic.cpp}
 \subsection{半平面交}
-\inputminted[breaklines]{c++}{geometry/half-plane-intersection.cpp}
+\inputminted[breaklines]{c++}{source/geometry/half-plane-intersection.cpp}
 \subsection{凸包操作}
-\inputminted[breaklines]{c++}{geometry/convex.cpp}
+\inputminted[breaklines]{c++}{source/geometry/convex.cpp}
 \subsection{动态维护凸壳}
-\inputminted[breaklines]{c++}{geometry/dynamic-convex.cpp}
+\inputminted[breaklines]{c++}{source/geometry/dynamic-convex.cpp}
+\subsection{三角形的心}
+\inputminted[breaklines]{c++}{source/geometry/triangle.cpp}
+\subsection{圆与多边形面积交}
+\inputminted[breaklines]{c++}{source/geometry/areaCT.cpp}
+\subsection{圆的面积模板（$n^2 \log n$）}
+\inputminted[breaklines]{c++}{source/geometry/circle-area.cpp}
+\subsection{Delaunay 三角剖分}
+\inputminted[breaklines,breakanywhere]{c++}{source/geometry/delaunay.cpp}
+\subsection{三维几何基本操作}
+\inputminted[breaklines]{c++}{source/geometry/3d.cpp}
+\subsection{三维凸包}
+\inputminted[breaklines,breakanywhere]{c++}{source/geometry/3d-convex.cpp}
+\subsection{求四点外接球}
+\inputminted[breaklines]{c++}{source/geometry/ball.cpp}
 
 \section{其他}
-\subsection{网络流（ISAP）}
-\inputminted[breaklines]{c++}{others/isap.cpp}
-\subsection{网络流（HLPP）}
-\inputminted[breaklines]{c++}{others/hlpp.cpp}
-\subsection{最小费用流}
-\inputminted[breaklines,breakanywhere]{c++}{others/mincost.cpp}
+\subsection{Dancing Links}
+\inputminted[breaklines]{c++}{source/others/dancing-links.cpp}
+\subsection{日期}
+\inputminted[breaklines]{c++}{source/others/date.cpp}
+\subsection{环状最长公共子序列}
+\inputminted[breaklines]{c++}{source/others/cycle-longest.cpp}
+\subsection{经纬度球面距离}
+\inputminted[breaklines]{c++}{source/others/sphere.cpp}
+\subsection{长方体表面两点最短距离}
+\inputminted[breaklines]{c++}{source/others/rectangle.cpp}
 \subsection{模拟退火}
-\inputminted[breaklines]{c++}{others/simulate_anneal.cpp}
+\inputminted[breaklines]{c++}{source/others/simulate-anneal.cpp}
 \subsection{Simpson 积分}
-\inputminted[breaklines]{c++}{others/simpson.cpp}
+\inputminted[breaklines]{c++}{source/others/simpson.cpp}
 \subsection{线性规划}
-\inputminted[breaklines]{c++}{others/linear-programming.cpp}
-\subsection{积分表}
-\input{others/calculus.tex}
-\subsection{Dreadnought}
-\input{others/dreadnought.tex}
+\inputminted[breaklines]{c++}{source/others/linear-programming.cpp}
+\section{积分表}
+\input{source/others/calculus.tex}
+\section{Dreadnought}
+\input{source/dreadnought.tex}
+\section{Blazar}
+\input{source/blazar.tex}
+\section{常见问题}
+\input{source/problems.tex}
+\section{cheat.pdf}
 \newpage
-\subsection{cheat.pdf}
-see the next page :)
-\includepdf[pages=-]{cheat.pdf}
+\noindent\includepdf[pages=-]{source/cheat.pdf}
 
 %\newpage
-%\section{Others}
+%\section{source/others}
 
 \end{document}

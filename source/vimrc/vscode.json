@@ -1,0 +1,19 @@
+{
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": false,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    },
+    {
+
+      "before": ["b", "b", "b"],
+      "after": ["{", "<Enter>"]
+    }
+  ],
+  "vim.leader": "<space>"
+}

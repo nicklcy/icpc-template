@@ -5,7 +5,7 @@
 \end{equation*}
 \noindent 等式两边同时加上 $B_{m+1}$，并设 $n = m - 1$，得
 \begin{equation*}
-\sum_{i=0}^n \binom{n}{i} = [n = 1] + B_n
+\sum_{i=0}^n \binom{n}{i} B_i = [n = 1] + B_n
 \end{equation*}
 \noindent 设 $\hat{B}(x) = \sum_{i=0}^\infty B_i \cdot \frac{x^i}{i!}$，则
 \begin{equation*}
@@ -14,7 +14,7 @@
 \begin{equation*}
 \begin{aligned}
 & 0^k + 1^k + \ldots + n^k \\
-=& ~ k! [x^k] \frac{e^{(n+1)x}-1}{x} \cdot \hat{B}(x) \\
+=& ~ k! \left[ x^k \right] \frac{e^{(n+1)x}-1}{x} \cdot \hat{B}(x) \\
 =& ~ k! \sum_{i=0}^k \frac{B_i}{i!} \cdot \frac{(n+1)^{k-i+1}}{(k-i+1)!} \\
 =& ~ \frac{1}{k+1} \sum_{i=0}^k \binom{k+1}{i} B_i \cdot (n+1)^{k-i+1}
 \end{aligned}
@@ -74,7 +74,7 @@ $$
 \end{equation*}
 
 \subsubsection{Burnside 引理}
-设置换群为 $G$，染色集合为 $X$.
+\hspace{\parindent}设置换群为 $G$，染色集合为 $X$.
 
 若染色 $x \in X$ 在置换 $f$ 的作用下得到染色 $y \in X$，则称 $x, y$ 等价.
 由置换群的定义，我们可以得到等价类，使得等价类内任意两个染色等价.
@@ -100,3 +100,8 @@ $$
 f(x) = x \times \frac{f(x)^3+3f(x^2)f(x)+2f(x^3)}{6}+1.
 $$
 牛顿迭代.
+
+\subsubsection{五边形数}
+$
+    \prod_{n=1}^{\infty}{(1-x^{n})}=\sum_{n=0}^{\infty}{(-1)^{n}(1-x^{2n+1})x^{n(3n+1)/2}}
+$

@@ -1,4 +1,6 @@
 // Dreadnought
+// 半支配点：u 是 v 的半支配点，当且仅当存在一条 u -> v 的路径，使得这条路径上除了 u 以外 num > num[v]
+// sem: num 最小的半支配点
 vector<int> prec[N], succ[N];
 vector<int> ord;
 int stamp, vis[N];
